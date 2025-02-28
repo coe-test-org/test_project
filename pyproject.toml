@@ -1,0 +1,17 @@
+[project]
+name = "test-project"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Frank Aragclear" }
+]
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+test-project = "test_project:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
