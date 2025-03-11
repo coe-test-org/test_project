@@ -82,3 +82,72 @@ def date_format(col: str,output_date_name = "output_date_name"):
             # if someone sends an excel date we'll just reject it and call the cops on them
 
         ).alias(output_date_name)
+        
+
+def save_raw_values(df_inp: pl.DataFrame, primary_key_col: str):
+    """ save raw values
+
+    Usage
+    -----
+    Converts a polars dataframe into a dataframe with all columns in a struct column.
+    It's good for saving raw outputs of data.
+
+    Parameters
+    ----------
+    df_inp: pl.DataFrame
+        a polars dataframe
+    primary_key_col: str
+        column name for the primary key (submission key, not person/case key)
+
+    Returns
+    -------
+    df: pl.DataFrame
+        a dataframe
+    
+    Examples
+    --------
+    ```{python}
+    #| echo: false
+    {{< include "../_setup.qmd" >}}
+    ```
+    ```{python}
+    import polars as pl
+    from src.subtype_link.utils import helpers
+
+
+    data = pl.DataFrame({
+        "lab_name": ["PHL", "MFT", "ELR","PHL"],
+        "first_name": ["Alice", "Bob", "Charlie", "Charlie"],
+        "last_name": ["Smith", "Johnson", "Williams", "Williams"],
+        "WA_ID": [1,2,4,4]
+    })
+    
+    received_submissions_df = (
+            helpers.save_raw_values(df_inp=data,primary_key_col="WA_ID")
+    )
+
+    helpers.gt_style(df_inp=data)
+    
+    ```
+
+    ```{python}
+    helpers.gt_style(df_inp=received_submissions_df)
+    ```
+
+    """
+
+    df = (
+        df_inp
+        .select([
+            # save the primary key
+            pl.col(primary_key_col).alias('submission_number'),
+
+            # internal create date
+            pl.lit(date.today()).alias("internal_create_date"),
+
+            # save a copy of all the original columns and put them into a struct column
+            pl.struct(pl.all()).alias("raw_inbound_submission")
+        ])
+    )
+
+    return df
