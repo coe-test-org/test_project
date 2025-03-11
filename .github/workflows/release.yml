@@ -70,9 +70,9 @@ jobs:
           uv build
 
       # Attach the build assets to the GitHub release (only if changelog creation was successful)
-      - name: Attach release assets
-        if: ${{ steps.changelog.outputs.skipped == 'false' }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: artifcats
-          path: dist/*
+      - name: Upload sdist to GitHub release
+        run: gh release upload $TAG $FILES --clobber
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.github-release.outputs.tag_name }}
+          FILES: dist/*.tar.gz dist/*.whl
