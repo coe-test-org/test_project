@@ -1,3 +1,12 @@
+## [0.2.3](https://github.com/coe-test-org/test_project/compare/v0.2.2...v0.2.3) (2025-03-11)
+
+
+### Bug Fixes
+
+* output release assets pls work 2 ([257830c](https://github.com/coe-test-org/test_project/commit/257830cc37a826843ae52075ad67698607529c23))
+
+
+
 ## [0.2.2](https://github.com/coe-test-org/test_project/compare/v0.2.1...v0.2.2) (2025-03-11)
 
 
