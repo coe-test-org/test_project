@@ -74,5 +74,5 @@ jobs:
         run: gh release upload $TAG $FILES --clobber
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG: ${{ steps.github-release.outputs.tag_name }}
+          TAG: ${{ steps.changelog.outputs.tag_name }}
           FILES: dist/*.tar.gz dist/*.whl
