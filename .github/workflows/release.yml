@@ -57,6 +57,9 @@ jobs:
           prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
+      
+      - name: Set up uv
+        run: curl -LsSf https://astral.sh/uv/install.sh | sh
 
       - name: Build package
         run: |
