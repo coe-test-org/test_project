@@ -1,7 +1,7 @@
 import polars as pl
 from polars.testing import assert_frame_equal as pl_assert_frame_equal
 import pytest
-from src.test_project import helpers
+from test_project import helpers
 
 
 @pytest.fixture
