@@ -73,7 +73,7 @@ jobs:
         run: |
           echo "Release tag: $TAG"
         env:
-          TAG: ${{ steps.changelog.outputs.tag_name }}
+          TAG: ${{ steps.changelog.outputs.tag }}
 
 
       # Attach the build assets to the GitHub release (only if changelog creation was successful)
@@ -81,5 +81,5 @@ jobs:
         run: gh release upload $TAG $FILES --clobber
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG: ${{ steps.changelog.outputs.tag_name }}
+          TAG: ${{ steps.changelog.outputs.tag }}
           FILES: dist/*.tar.gz dist/*.whl
