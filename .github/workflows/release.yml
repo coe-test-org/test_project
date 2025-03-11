@@ -70,7 +70,8 @@ jobs:
           uv build
 
       - name: Debug TAG value
-        run: echo "Release tag: $TAG"
+        run: |
+          echo "Release tag: $TAG"
         env:
           TAG: ${{ steps.changelog.outputs.tag_name }}
 
