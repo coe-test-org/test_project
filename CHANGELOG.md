@@ -1,3 +1,12 @@
+## [0.2.5](https://github.com/coe-test-org/test_project/compare/v0.2.4...v0.2.5) (2025-03-11)
+
+
+### Bug Fixes
+
+* try 6 ([a6b709d](https://github.com/coe-test-org/test_project/commit/a6b709da6455eee53a460a7548870e5e06a9ef6d))
+
+
+
 ## [0.2.4](https://github.com/coe-test-org/test_project/compare/v0.2.3...v0.2.4) (2025-03-11)
 
 
@@ -33,15 +42,6 @@
 ### Bug Fixes
 
 * update package import in docstring ([1719b4a](https://github.com/coe-test-org/test_project/commit/1719b4aa898ab11980cef10f2c2aff7d029bc181))
-
-
-
-# [0.2.0](https://github.com/coe-test-org/test_project/compare/v0.1.0...v0.2.0) (2025-03-11)
-
-
-### Features
-
-* add a new function + test ([b051bd0](https://github.com/coe-test-org/test_project/commit/b051bd01f9810cf642103d316c4172de5b76e3ac))
 
 
 
