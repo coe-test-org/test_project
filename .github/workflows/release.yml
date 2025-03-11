@@ -60,7 +60,7 @@ jobs:
 
       # Attach the build assets to the GitHub release (only if changelog creation was successful)
       - name: Attach release assets
-        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        if: ${{ steps.changelog.outputs.skipped == 'false' && startsWith(github.ref, 'refs/tags/') }}
         uses: softprops/action-gh-release@v2
         with:
           files: dist/*
