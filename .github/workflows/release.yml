@@ -1,0 +1,66 @@
+name: Build, Test, Changelog, and Release Python Package
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    name: Build and Test Python Package
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.6.5" # pin a specific version is best practice
+          enable-cache: true
+
+      # install python in 
+      - name: "Set up Python"
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: "pyproject.toml"
+
+      - name: Run tests
+        # For example, using `pytest`
+        run: uv run pytest tests
+
+  changelog-and-release:
+    name: Generate Changelog and Release
+    runs-on: ubuntu-latest
+    needs: build-and-test  # This makes sure the build job runs first
+
+    steps:
+      # Checkout the code
+      - uses: actions/checkout@v4
+
+      # Generate changelog
+      - name: Conventional Changelog Action
+        id: changelog
+        uses: TriPSs/conventional-changelog-action@v3
+        with:
+          github-token: ${{ secrets.github_token }}
+          create-summary: true
+
+      # Only create a release if the changelog was generated successfully
+      - name: Create GitHub release
+        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ steps.changelog.outputs.tag }}
+          release_name: ${{ steps.changelog.outputs.tag }}
+          body: ${{ steps.changelog.outputs.clean_changelog }}
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.github_token }}
+
+      # Attach the build assets to the GitHub release (only if changelog creation was successful)
+      - name: Attach release assets
+        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*

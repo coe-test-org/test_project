@@ -6,8 +6,10 @@ readme = "README.md"
 authors = [
     { name = "Frank Aragclear" }
 ]
-requires-python = ">=3.11"
-dependencies = []
+requires-python = ">=3.10"
+dependencies = [
+    "polars>=1.24.0",
+]
 
 [project.scripts]
 test-project = "test_project:main"
