@@ -58,6 +58,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
 
+      - name: Build package
+        run: |
+          VERSION=$(uvx dunamai from any --no-metadata --style pep440).$(date +"%Y%m%d")
+          echo $VERSION
+          uvx --from=toml-cli toml set --toml-path=pyproject.toml project.version $VERSION
+          uv build
+
       # Attach the build assets to the GitHub release (only if changelog creation was successful)
       - name: Attach release assets
         if: ${{ steps.changelog.outputs.skipped == 'false' && startsWith(github.ref, 'refs/tags/') }}
