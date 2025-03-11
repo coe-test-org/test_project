@@ -114,7 +114,6 @@ def save_raw_values(df_inp: pl.DataFrame, primary_key_col: str):
     import polars as pl
     from test_project import helpers
 
-
     data = pl.DataFrame({
         "lab_name": ["PHL", "MFT", "ELR","PHL"],
         "first_name": ["Alice", "Bob", "Charlie", "Charlie"],
