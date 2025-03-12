@@ -64,7 +64,8 @@ jobs:
       - name: Build package
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
         run: |
-          VERSION=$(uvx dunamai from any --no-metadata --style pep440)
+          # VERSION=$(uvx dunamai from any --no-metadata --style pep440)
+          VERSION=$(uvx dunamai from any --no-metadata --style pep440 | sed -E 's/\.post[0-9]+\.dev[0-9]+//')
           echo $VERSION
           uvx --from=toml-cli toml set --toml-path=pyproject.toml project.version $VERSION
           uv build
@@ -77,3 +78,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG: ${{ steps.changelog.outputs.tag }}
           FILES: dist/*.tar.gz dist/*.whl
+      
+      - name: Push Files for GitHub Action
+        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        run: |
+          git config user.name "Your GitHub Actions Bot"
+          git config user.email "your-email@example.com"
+          git add .
+          git commit -m "Build package and update version"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
