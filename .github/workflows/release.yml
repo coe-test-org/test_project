@@ -7,7 +7,7 @@ on:
 
 jobs:
   unit-tests:
-    name: Build and Test Python Package
+    name: Test Python Package
     runs-on: ubuntu-latest
 
     steps:
@@ -30,7 +30,7 @@ jobs:
         run: uv run pytest tests
 
   build-and-release:
-    name: Generate Changelog and Release
+    name: Generate Changelog, build, and release
     runs-on: ubuntu-latest
     needs: unit-tests  # This makes sure the build job runs first
 
@@ -59,6 +59,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.github_token }}
       
       - name: Set up uv
+        if: ${{ steps.changelog.outputs.skipped == 'false' }}
         run: curl -LsSf https://astral.sh/uv/install.sh | sh
 
       - name: Build package
@@ -70,7 +71,7 @@ jobs:
           uv build
 
       # Attach the build assets to the GitHub release (only if changelog creation was successful)
-      - name: Upload sdist to GitHub release
+      - name: Upload package dist to GitHub release
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
         run: gh release upload $TAG $FILES --clobber
         env:
