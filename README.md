@@ -12,6 +12,17 @@ Open PowerShell terminal (or Ubuntu bash terminal)
 5. `uv pip install polars`
 6. `uv pip install git+https://github.com/coe-test-org/test_project.git#egg=test_project`
 
+To install a specific version, find the git tag noted in the GitHub Release section (something like `v0.2.5`) and then put it in the install statement like `.git@v0.2.5`:
+
+```bash
+uv pip install git+https://github.com/coe-test-org/test_project.git@v0.2.5#egg=test_project
+```
+
+here's what it looks like when updating the install version:
+
+![image](https://github.com/user-attachments/assets/ac571054-4918-40a1-b601-000869b97866)
+
+
 
 # How to test it
 create a script called `main.py` in your folder and run this code:
