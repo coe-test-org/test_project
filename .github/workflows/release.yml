@@ -49,17 +49,6 @@ jobs:
           github-token: ${{ secrets.github_token }}
           create-summary: true
 
-      # Only create a release if the changelog was generated successfully
-      # - name: Create GitHub release
-      #   if: ${{ steps.changelog.outputs.skipped == 'false' }}
-      #   uses: actions/create-release@v1
-      #   with:
-      #     tag_name: ${{ steps.changelog.outputs.tag }}
-      #     release_name: ${{ steps.changelog.outputs.tag }}
-      #     body: ${{ steps.changelog.outputs.clean_changelog }}
-      #     prerelease: false
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.github_token }}
       
       - name: Set up uv
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
@@ -74,14 +63,6 @@ jobs:
           uvx --from=toml-cli toml set --toml-path=pyproject.toml project.version $VERSION
           uv build
 
-      # Attach the build assets to the GitHub release (only if changelog creation was successful)
-      # - name: Upload package dist to GitHub release
-      #   if: ${{ steps.changelog.outputs.skipped == 'false' }}
-      #   run: gh release upload $TAG $FILES --clobber
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     TAG: ${{ steps.changelog.outputs.tag }}
-      #     FILES: dist/*.tar.gz dist/*.whl
       - name: Create GitHub release and discussion
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
         run: |
@@ -94,6 +75,14 @@ jobs:
           TAG: ${{ steps.changelog.outputs.tag }}
           CHANGELOG: ${{ steps.changelog.outputs.clean_changelog }}
           FILES: dist/*.tar.gz dist/*.whl
+
+      - name: Upload dist artifacts
+        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        uses: actions/upload-artifact@v6
+        with:
+          name: dist
+          path: dist/
+
 
       
       - name: Push Files for GitHub Action
