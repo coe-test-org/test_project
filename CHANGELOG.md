@@ -1,3 +1,12 @@
+## [0.6.2](https://github.com/coe-test-org/test_project/compare/v0.6.1...v0.6.2) (2026-02-05)
+
+
+### Bug Fixes
+
+* Update release.yml ([1b8f4af](https://github.com/coe-test-org/test_project/commit/1b8f4afe1eaea6fa58b7bb55905b0eae1613680d))
+
+
+
 ## [0.6.1](https://github.com/coe-test-org/test_project/compare/v0.6.0...v0.6.1) (2026-02-05)
 
 
@@ -36,15 +45,6 @@
 ### Features
 
 * change func() ([991df31](https://github.com/coe-test-org/test_project/commit/991df31b4b977fb39cee17b1f6f4f6560b971282))
-
-
-
-# [0.4.0](https://github.com/coe-test-org/test_project/compare/v0.3.0...v0.4.0) (2026-02-05)
-
-
-### Features
-
-* add func() ([a5c98c9](https://github.com/coe-test-org/test_project/commit/a5c98c919a0102c9732d43574526bd58a9786dda))
 
 
 
