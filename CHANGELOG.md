@@ -1,3 +1,12 @@
+# [0.5.0](https://github.com/coe-test-org/test_project/compare/v0.4.0...v0.5.0) (2026-02-05)
+
+
+### Features
+
+* change func() ([991df31](https://github.com/coe-test-org/test_project/commit/991df31b4b977fb39cee17b1f6f4f6560b971282))
+
+
+
 # [0.4.0](https://github.com/coe-test-org/test_project/compare/v0.3.0...v0.4.0) (2026-02-05)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * update pkg version ([1732475](https://github.com/coe-test-org/test_project/commit/1732475153cd9363d49985084903d5bff28a095a))
-
-
-
-## [0.2.5](https://github.com/coe-test-org/test_project/compare/v0.2.4...v0.2.5) (2025-03-11)
-
-
-### Bug Fixes
-
-* try 6 ([a6b709d](https://github.com/coe-test-org/test_project/commit/a6b709da6455eee53a460a7548870e5e06a9ef6d))
 
 
 
