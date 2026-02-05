@@ -1,0 +1,24 @@
+[project]
+name = "water-bottle-please"
+version = "0.6.4"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Frank Aragclear" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "polars>=1.24.0",
+]
+
+[project.scripts]
+water-bottle-please = "water_bottle_please:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+]
