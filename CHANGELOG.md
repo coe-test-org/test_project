@@ -1,3 +1,12 @@
+## [0.5.1](https://github.com/coe-test-org/test_project/compare/v0.5.0...v0.5.1) (2026-02-05)
+
+
+### Bug Fixes
+
+* Update release.yml ([d7da734](https://github.com/coe-test-org/test_project/commit/d7da734a421394bffc04184728d4273ef32b8d2e))
+
+
+
 # [0.5.0](https://github.com/coe-test-org/test_project/compare/v0.4.0...v0.5.0) (2026-02-05)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * test release ([53fda9b](https://github.com/coe-test-org/test_project/commit/53fda9b03d9b319e12942a1d944059f5caff814c))
-
-
-
-## [0.2.6](https://github.com/coe-test-org/test_project/compare/v0.2.5...v0.2.6) (2025-03-12)
-
-
-### Bug Fixes
-
-* update pkg version ([1732475](https://github.com/coe-test-org/test_project/commit/1732475153cd9363d49985084903d5bff28a095a))
 
 
 
