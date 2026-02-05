@@ -1,3 +1,12 @@
+## [0.6.4](https://github.com/coe-test-org/test_project/compare/v0.6.3...v0.6.4) (2026-02-05)
+
+
+### Bug Fixes
+
+* idk ([05c4748](https://github.com/coe-test-org/test_project/commit/05c47481abfabfdceeab775d7faa1b1adf509017))
+
+
+
 ## [0.6.3](https://github.com/coe-test-org/test_project/compare/v0.6.2...v0.6.3) (2026-02-05)
 
 
@@ -36,15 +45,6 @@
 ### Features
 
 * Create smoke_test.py ([d17e0e6](https://github.com/coe-test-org/test_project/commit/d17e0e6bf53c134e671fc5b48f4f297a61a0d4d3))
-
-
-
-## [0.5.1](https://github.com/coe-test-org/test_project/compare/v0.5.0...v0.5.1) (2026-02-05)
-
-
-### Bug Fixes
-
-* Update release.yml ([d7da734](https://github.com/coe-test-org/test_project/commit/d7da734a421394bffc04184728d4273ef32b8d2e))
 
 
 
