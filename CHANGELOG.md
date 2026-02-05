@@ -1,3 +1,12 @@
+# [0.4.0](https://github.com/coe-test-org/test_project/compare/v0.3.0...v0.4.0) (2026-02-05)
+
+
+### Features
+
+* add func() ([a5c98c9](https://github.com/coe-test-org/test_project/commit/a5c98c919a0102c9732d43574526bd58a9786dda))
+
+
+
 # [0.3.0](https://github.com/coe-test-org/test_project/compare/v0.2.7...v0.3.0) (2025-09-03)
 
 
@@ -31,17 +40,6 @@
 ### Bug Fixes
 
 * try 6 ([a6b709d](https://github.com/coe-test-org/test_project/commit/a6b709da6455eee53a460a7548870e5e06a9ef6d))
-
-
-
-## [0.2.4](https://github.com/coe-test-org/test_project/compare/v0.2.3...v0.2.4) (2025-03-11)
-
-
-### Bug Fixes
-
-* output release assets pls work 3 ([512e2f4](https://github.com/coe-test-org/test_project/commit/512e2f46143afe47f7a2ea156fee36c10e39fcef))
-* try 4 ([ac728f7](https://github.com/coe-test-org/test_project/commit/ac728f7527126355e57366cc4f7126f9d6da8d00))
-* try 5 ([0728b60](https://github.com/coe-test-org/test_project/commit/0728b60269e79209b896213c1ae3a998411ae2ec))
 
 
 
