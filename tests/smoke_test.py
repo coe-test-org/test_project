@@ -6,12 +6,12 @@ recommended to check that e.g. assets are included."""
 # tests/smoke_test.py
 import sys
 
-import test_project  # replace with your actual package name
-from test_project import helpers
+import water_bottle_please  # replace with your actual package name
+from water_bottle_please import helpers
 
 def test_basic_import():
     """Check that the package can be imported."""
-    assert test_project is not None
+    assert water_bottle_please is not None
 
 def test_basic_functionality():
     """Optionally check one key function."""

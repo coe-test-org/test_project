@@ -1,5 +1,5 @@
 [project]
-name = "test-project"
+name = "water-bottle-please"
 version = "0.6.1"
 description = "Add your description here"
 readme = "README.md"
@@ -12,7 +12,7 @@ dependencies = [
 ]
 
 [project.scripts]
-test-project = "test_project:main"
+water-bottle-please = "water_bottle_please:main"
 
 [build-system]
 requires = ["hatchling"]
